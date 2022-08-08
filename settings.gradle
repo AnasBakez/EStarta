@@ -16,3 +16,11 @@ rootProject.name = "Estarta-Task"
 include ':app'
 include ':core'
 include ':itemslist'
+
+//##### Features modules #####//
+include(
+    ":itemslist"
+)
+
+
+project(":itemslist").projectDir = new File("features/itemslist")
