@@ -37,13 +37,14 @@ ext {
     dagger = [
             [configuration: "implementation", dependency: "com.google.dagger:dagger:$dagger_version"],
             [configuration: "implementation", dependency: "com.google.dagger:dagger-android:$dagger_version"],
-            [configuration: "kapt", dependency: "com.google.dagger:dagger-compiler:$dagger_version"],
-            [configuration: "kapt", dependency: "com.google.dagger:dagger-android-processor:$dagger_version"]
+            [configuration: "annotationProcessor", dependency: "com.google.dagger:dagger-compiler:$dagger_version"],
+            [configuration: "annotationProcessor", dependency: "com.google.dagger:dagger-android-processor:$dagger_version"]
     ]
 
 
 
     support_version = '1.1.0'
+    navigation_version = '2.5.1'
     support = [:]
     support.appCompat           = "androidx.appcompat:appcompat:$support_version"
     support.core_ktx            = "androidx.core:core-ktx:1.2.0"
@@ -55,6 +56,8 @@ ext {
     support.fragment_runtime_ktx = "androidx.fragment:fragment-ktx:1.2.4"
     support.annotations         = "androidx.annotation:annotation:$support_version"
     support.coordinatorLayout   = "androidx.coordinatorlayout:coordinatorlayout:$support_version"
+    support.navigation          = "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    support.navigation_ui       = "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
 
     kotlin_version = '1.5.10'

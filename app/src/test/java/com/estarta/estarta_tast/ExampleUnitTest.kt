@@ -1,4 +1,4 @@
-package com.baaz.estarta_task
+package com.estarta.estarta_tast
 
 import org.junit.Test
 

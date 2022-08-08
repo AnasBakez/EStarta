@@ -2,7 +2,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.baaz.estarta_task">
+    package="com.estarta.estarta_task">
 
     <application
         android:allowBackup="true"
