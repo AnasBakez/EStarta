@@ -21,7 +21,9 @@ include ':Network'
 
 //##### Features modules #####//
 include(
-    ":itemslist"
+    ":itemslist",
+    ":itemdetails"
 )
 
 project(":itemslist").projectDir = new File("features/itemslist")
+project(":itemdetails").projectDir = new File("features/itemdetails")
