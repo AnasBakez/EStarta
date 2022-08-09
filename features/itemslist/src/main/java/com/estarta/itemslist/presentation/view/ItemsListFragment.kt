@@ -2,7 +2,6 @@ package com.estarta.itemslist.presentation.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.estarta.core.base.BaseFragment
 import com.estarta.core.di.helpers.CoreInjectHelper
@@ -11,6 +10,7 @@ import com.estarta.core.extensions.removeProgressDialog
 import com.estarta.core.extensions.showProgressDialog
 import com.estarta.core.extensions.showToast
 import com.estarta.itemslist.R
+import com.estarta.itemslist.bridge.ItemsListInjectorHelper
 import com.estarta.itemslist.databinding.FragmentItemsListBinding
 import com.estarta.itemslist.di.DaggerItemsListComponent
 import com.estarta.itemslist.di.ItemsListComponent
@@ -18,6 +18,7 @@ import com.estarta.itemslist.domain.model.ItemModel
 import com.estarta.itemslist.presentation.view.adapter.ItemListAdapter
 import com.estarta.itemslist.presentation.viewmodel.ItemsListVM
 import com.estarta.network.models.ErrorEntity
+import androidx.navigation.fragment.findNavController
 
 class ItemsListFragment() : BaseFragment<FragmentItemsListBinding>(),
     ItemsListActionInterface {
@@ -99,7 +100,8 @@ class ItemsListFragment() : BaseFragment<FragmentItemsListBinding>(),
     }
 
     override fun onItemClicked(itemModel: ItemModel) {
-        Toast.makeText(requireContext(), itemModel.name, Toast.LENGTH_SHORT).show() //TODO
+        ItemsListInjectorHelper.provideDependenciesBridge(requireActivity().applicationContext)
+            .openItemDetails(findNavController(),itemModel)
     }
 }
 

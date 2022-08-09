@@ -4,16 +4,14 @@ import android.app.Application
 import com.estarta.core.di.components.CoreComponent
 import com.estarta.core.di.components.DaggerCoreComponent
 import com.estarta.core.di.helpers.CoreComponentProvider
-import com.estarta.core.di.helpers.ModulesCommunicationProvider
-import com.estarta.core.di.helpers.ModulesCommunicator
+import com.estarta.estarta_task.bridges.ItemsListDependenciesBridgeImpl
+import com.estarta.itemslist.bridge.ItemsListDependenciesBridgeProvider
 
-class MyApplication() : Application(), CoreComponentProvider, ModulesCommunicationProvider {
+class MyApplication() : Application(), CoreComponentProvider, ItemsListDependenciesBridgeProvider {
 
     override fun provideCoreComponent(): CoreComponent {
         return DaggerCoreComponent.builder().application(this).build();
     }
 
-    override fun provideModulesCommunicator(): ModulesCommunicator {
-        TODO("Not yet implemented")
-    }
+    override fun provideItemsListDependenciesBridge() = ItemsListDependenciesBridgeImpl
 }
