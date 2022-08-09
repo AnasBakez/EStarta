@@ -2,10 +2,10 @@ package com.estarta.itemslist.presentation.view.adapter
 
 import android.view.ViewGroup
 import com.estarta.core.base.BaseViewHolder
+import com.estarta.core.models.ImageModel
 import com.estarta.core.utils.AppImageLoader
 import com.estarta.itemslist.R
 import com.estarta.itemslist.databinding.ItemRowBinding
-import com.estarta.itemslist.domain.model.ImageModel
 import com.estarta.itemslist.domain.model.ItemModel
 import com.estarta.itemslist.presentation.view.ItemsListActionInterface
 

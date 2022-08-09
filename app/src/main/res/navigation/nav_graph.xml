@@ -5,23 +5,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/ItemsListFragment">
-
     <fragment
         android:id="@+id/ItemsListFragment"
         android:name="com.estarta.itemslist.presentation.view.ItemsListFragment"
-        android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_items_list">
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/ItemDetails"/>
+            android:id="@+id/openItemDetails"
+            app:destination="@id/ItemDetails">
+        </action>
     </fragment>
     <fragment
         android:id="@+id/ItemDetails"
-        android:name="com.estarta.itemdetails.presentation.ItemDetailsFragment"
+        android:name="com.estarta.itemdetails.presentation.view.ItemDetailsFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_itemdetails">
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/ItemsListFragment"/>
+        <argument
+            android:name="createdAt"
+            android:defaultValue="0L"
+            app:argType="long"/>
+        <argument
+            android:name="price"
+            android:defaultValue=""
+            app:argType="string"/>
+        <argument
+            android:name="name"
+            android:defaultValue=""
+            app:argType="string"/>
+        <argument
+            android:name="uid"
+            android:defaultValue=""
+            app:argType="string"/>
+        <argument
+            android:name="images"
+            app:argType="com.estarta.core.models.ImageModel[]"/>
     </fragment>
 </navigation>

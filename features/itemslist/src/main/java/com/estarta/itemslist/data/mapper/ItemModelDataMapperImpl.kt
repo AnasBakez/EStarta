@@ -1,7 +1,7 @@
 package com.estarta.itemslist.data.mapper
 
+import com.estarta.core.models.ImageModel
 import com.estarta.core.models.PagingModel
-import com.estarta.itemslist.domain.model.ImageModel
 import com.estarta.itemslist.domain.model.ItemModel
 import com.estarta.network.models.GetItemsResponse
 import com.estarta.network.models.ItemResponse
