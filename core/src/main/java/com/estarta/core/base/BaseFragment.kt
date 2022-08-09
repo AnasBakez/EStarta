@@ -14,7 +14,7 @@ import androidx.fragment.app.viewModels
 import com.estarta.core.di.viewmodel.DaggerViewModelFactory
 import javax.inject.Inject
 
-abstract class BaseFragment<V : ViewDataBinding> : Fragment() {
+abstract class  BaseFragment<V : ViewDataBinding> : Fragment() {
 
     protected lateinit var viewBinding: V
     @LayoutRes

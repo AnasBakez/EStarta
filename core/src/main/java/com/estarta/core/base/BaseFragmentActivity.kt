@@ -18,6 +18,8 @@ abstract class BaseFragmentActivity<V : ViewDataBinding> : AppCompatActivity() {
 
     protected lateinit var viewBinding: V
 
+    var pdLoadingView: ProgressDialog? = null
+
     @Inject
     lateinit var viewModelFactory: DaggerViewModelFactory
 
