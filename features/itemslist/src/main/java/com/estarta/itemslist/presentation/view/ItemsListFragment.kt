@@ -55,7 +55,7 @@ class ItemsListFragment() : BaseFragment<FragmentItemsListBinding>(),
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
         assignAdapterToRecycler()
-
+        viewModel.loadData()
     }
 
     private fun setupToolbar() {
@@ -69,7 +69,6 @@ class ItemsListFragment() : BaseFragment<FragmentItemsListBinding>(),
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadData()
         listenItemsListChanges()
     }
 
