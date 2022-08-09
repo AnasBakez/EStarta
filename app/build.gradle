@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -56,4 +59,10 @@ dependencies {
     implementation rootProject.ext.kotlin.stdlib
     implementation rootProject.ext.support.fragment_runtime_ktx
     implementation rootProject.ext.support.annotations
+
+
+    //Dagger
+    dagger.each {
+        add(it.configuration, it.dependency, it.options)
+    }
 }

@@ -35,6 +35,8 @@ android {
 
 dependencies {
 
+    api project(':Network')
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -51,6 +53,10 @@ dependencies {
     implementation rootProject.ext.lifecycle.extensions
 
     dagger.each {
+        add(it.configuration, it.dependency, it.options)
+    }
+
+    glide.each {
         add(it.configuration, it.dependency, it.options)
     }
 }

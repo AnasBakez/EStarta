@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.estarta.core.extensions.DateExtKt" />
+
+        <variable
+            name="actionInterface"
+            type="com.estarta.itemslist.presentation.view.ItemsListActionInterface" />
+
+
+        <variable
+            name="item"
+            type="com.estarta.itemslist.domain.model.ItemModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{() -> actionInterface.onItemClicked(item)}"
+        android:elevation="3dp"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <ImageView
+                android:id="@+id/item_list_image"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_margin="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/item_list_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/text_size_small"
+                android:text="@{DateExtKt.format(item.createdAt)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/item_list_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.name}"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:paddingTop="20dp"
+                app:layout_constraintStart_toEndOf="@id/item_list_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/gl_center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/item_list_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.price}"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintStart_toEndOf="@id/item_list_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gl_center_vertical"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
