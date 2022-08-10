@@ -38,6 +38,7 @@ class ItemsListFragment() : BaseFragment<FragmentItemsListBinding>(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         injectFragment()
+        viewModel.loadData()
     }
 
     private fun injectFragment() {
@@ -55,7 +56,6 @@ class ItemsListFragment() : BaseFragment<FragmentItemsListBinding>(),
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
         assignAdapterToRecycler()
-        viewModel.loadData()
     }
 
     private fun setupToolbar() {
